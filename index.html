@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>YouTube Clone</title>
+</head>
+<body>
+    <div>
+        <nav class="navBar">
+            <form id="form">
+                <input type="search" name="" id="search">
+                <button class="submitbtn" type="submit">Search</button>
+            </form>
+            <button class="btn" id="signIn">Sign In</button>
+            <button class="btn" id="signOut">Sign Out</button>
+        </nav>
+    </div>
+    <div id="output">
+
+    </div>
+
+    <script src="index.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+</body>
+</html>
