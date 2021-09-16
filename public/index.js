@@ -62,6 +62,8 @@ function makeApiCall() {
             let item = await resp.result.items;
 
             item.forEach(items => {
+                let player = items.player;
+                let embedHtml = player.embedHtml;
                 let snippet = items.snippet;
                 let thumbnails = snippet.thumbnails;
                 let image = thumbnails.medium;
@@ -85,14 +87,27 @@ function makeApiCall() {
                 divTag.appendChild(hTag);
                 divTag.appendChild(aTag);
                 document.querySelector('#output').appendChild(divTag);
-                // console.log(items);
+                console.log();
+                pullVideo(embedHtml);
             });
         } catch (error) {
             let err = error.message;
             console.log(err);
-        }
-        // put callback for eventlistener function here 
+        }      
         console.log(resp);
     });
   }
 
+function pullVideo(vid) {
+    let embedHtml = vid;
+    document.querySelectorAll('img').forEach(i => {
+        let video = i;
+        video.addEventListener('click', v => {
+            let path = v.path;
+            let imgLink = path[0];
+            document.querySelector('#videoOutput').appendChild(imgLink);
+            document.querySelector('#output').style.display = 'none';
+            console.log(embedHtml);
+        });
+    })
+};
