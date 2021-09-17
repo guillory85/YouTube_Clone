@@ -87,8 +87,10 @@ function makeApiCall() {
                 divTag.appendChild(hTag);
                 divTag.appendChild(aTag);
                 document.querySelector('#output').appendChild(divTag);
-                console.log();
-                pullVideo(embedHtml);
+                divTag.addEventListener('click', () => {
+                    document.querySelector('#videoOutput').innerHTML = embedHtml;
+                    document.querySelector('#output').style.display = 'none';
+                })
             });
         } catch (error) {
             let err = error.message;
@@ -97,17 +99,3 @@ function makeApiCall() {
         console.log(resp);
     });
   }
-
-function pullVideo(vid) {
-    let embedHtml = vid;
-    document.querySelectorAll('img').forEach(i => {
-        let video = i;
-        video.addEventListener('click', v => {
-            let path = v.path;
-            let imgLink = path[0];
-            document.querySelector('#videoOutput').appendChild(imgLink);
-            document.querySelector('#output').style.display = 'none';
-            console.log(embedHtml);
-        });
-    })
-};
