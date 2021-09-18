@@ -44,6 +44,7 @@ function handleInClick() {
 
 function handleOutClick() {
     gapi.auth2.getAuthInstance().signOut();
+    reset();
     console.log("You have signed out!");
 }
 
@@ -99,3 +100,8 @@ function makeApiCall() {
         console.log(resp);
     });
   }
+
+function reset() {
+    document.querySelector('#output').style.display = "none";
+    document.querySelector('#videoOutput').style.display = "none";
+}
