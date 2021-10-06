@@ -11,21 +11,27 @@
     <div>
         <nav class="navBar">
             <form id="form">
-                <input type="search" name="" id="search">
-                <button class="submitbtn" type="submit">Search</button>
+                <input type="text" name="" id="search">
+                <button class="submitBtn">Search</button>
             </form>
+
+            <form action="/" method="POST"></form>
             <button class="btn" id="signIn">Sign In</button>
             <button class="btn" id="signOut">Sign Out</button>
         </nav>
     </div>
-    <div id="output"></div>
+    <form action="/" method="POST">
+        <div id="output"></div>
+    </form>
 
     <div id="videoOutput"></div>
 
-    <script src="index.js"></script>
-    <script async defer src="https://apis.google.com/js/api.js"
+    
+    <!-- <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+    </script> -->
+    <!-- <script src="https://apis.google.com/js/api.js"></script>
+    <script src="public/index.js"></script> -->
 </body>
 </html>

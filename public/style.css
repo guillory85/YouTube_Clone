@@ -11,7 +11,7 @@
  .navBar form {
      margin: 2% 5%;
  }
-.navBar button {
+.navBar .btn {
     background-color: red;
     color: white;
     position: relative;
@@ -19,7 +19,14 @@
     left: 30%;
     padding: 10px;
     margin: 15px;
-    display: none;
+}
+
+.submitBtn {
+    flex-basis: 3%;
+    height: 30px;
+    background-color: rgba(4, 133, 21, 0.473);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 div:nth-child(2) {
