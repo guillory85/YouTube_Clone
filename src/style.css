@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBar {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.navBar .btn {
+    background-color: red;
+    color: white;
+    position: relative;
+    top: 45%;
+    left: 20%;
+    border-radius: 25%;
+    padding: 10px;
+    margin: 15px;
+}
+
+.navBar .submitbtn {
+    background-color: red;
+    color: white;
+    position: relative;
+    top: 45%;
+    border-radius: 25%;
+    padding: 10px;
+    margin: 15px;
+}
+
+.navBar input {
+    position: relative;
+    flex-basis: 20%;
+    height: 30px;
+    border-radius: 10%;
+    border: none;
+    margin: 15px;
+}
+
+div:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.imgStyle {
+    align-content: center;
+    justify-content: start;
+    text-align: center;
+    width: 320px;
+    height: 275px;
+    flex-basis: auto;
+    margin: 5px;
+    cursor: pointer;
+}
+
+div:nth-child(3) {
+    padding: 25px;
+}

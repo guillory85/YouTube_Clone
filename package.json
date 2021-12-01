@@ -1,10 +1,11 @@
 {
   "name": "yt-clone",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creating a YouTube clone web app using the YouTube API, JS, CSS and HTML.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "webpack-dev-server --output-public-path=/build/",
+    "build": "webpack --config webpack.config.js"
   },
   "author": "Terry Guillory",
   "license": "ISC",
@@ -15,6 +16,22 @@
     "googleapis": "^74.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
-  }
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.12",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillory85/Youtube_Clone.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/guillory85/Youtube_Clone/issues"
+  },
+  "homepage": "https://github.com/guillory85/Youtube_Clone#readme"
 }

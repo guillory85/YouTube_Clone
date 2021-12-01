@@ -10,10 +10,8 @@
 <body>
     <div>
         <nav class="navBar">
-            <form id="form">
-                <input type="search" name="" id="search">
-                <button class="submitbtn" type="submit">Search</button>
-            </form>
+            <input type="search" id="search">
+            <button class="submitbtn">Search</button>
             <button class="btn" id="signIn">Sign In</button>
             <button class="btn" id="signOut">Sign Out</button>
         </nav>
@@ -22,10 +20,7 @@
 
     <div id="videoOutput"></div>
 
-    <script src="index.js"></script>
-    <script async defer src="https://apis.google.com/js/api.js"
-        onload="this.onload=function(){};handleClientLoad()"
-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <script src="./dist/main.js" type="text/javascript"></script>
 </body>
 </html>
