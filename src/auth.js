@@ -23,6 +23,7 @@ export function initClient() {
 
         let user = GoogleAuth.currentUser.get();
         setSigninStatus();
+        makeApiCall();
         
         signIn.onclick = handleAuthClick;
         signOut.onclick = revokeAccess;
@@ -34,7 +35,6 @@ function handleAuthClick() {
         GoogleAuth.signOut();
     } else {
         GoogleAuth.signIn();
-        makeApiCall();
     }
 }
 

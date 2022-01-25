@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
     mode: "development",
-    entry: ["./src/index.js","./src/search.js"],
+    entry: ["./src/index.js","./src/search.js", "./src/request.js"],
     output: {
         filename:"main.js",
         path: path.join(__dirname, "src/dist"),

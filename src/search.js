@@ -14,7 +14,7 @@ document.querySelector('.submitbtn').addEventListener('click', () => {
 
     batch.add(searchApi);
     searchApi.then((res) => {
-        console.log(res);
+        console.log (res);
         try {
 
             let item = res.result.items;

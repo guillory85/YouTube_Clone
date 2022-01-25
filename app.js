@@ -4,10 +4,14 @@ const app = express();
 
 app.use(express.static('src'));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res)=> {
     res.sendFile(__dirname + '/index.html');
 })
 
-app.listen(3000, function() {
-    console.log("Server started on port 3000.");
+app.get('/video', (req, res)=> {
+    res.sendFile(__dirname + '/html/video.html');
+})
+
+app.listen(3000, ()=> {
+    console.log("App is running on port 3000. Go drink a beer!");
 });

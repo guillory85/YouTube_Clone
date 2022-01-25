@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"initClient\": () => (/* binding */ initClient)\n/* harmony export */ });\n/* harmony import */ var _callapi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./callapi.js */ \"./src/callapi.js\");\n/* harmony import */ var _reset_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reset.js */ \"./src/reset.js\");\n\n\nvar API_key = 'AIzaSyBYf4BqVTCZogqRKxcmmEdzufGesXDmKII';\nvar CLIENT_ID = '984566811730-bmukbq2h5lk81rs3g5drdcudc8rpbe31.apps.googleusercontent.com';\nvar DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'];\nvar SCOPES = 'https://www.googleapis.com/auth/youtube';\nvar signIn = document.querySelector('#signIn');\nvar signOut = document.querySelector('#signOut');\nvar GoogleAuth;\nfunction initClient() {\n  gapi.client.init({\n    'apiKey': API_key,\n    'clientId': CLIENT_ID,\n    'scope': SCOPES,\n    'discoveryDocs': DISCOVERY_DOCS\n  }).then(function () {\n    GoogleAuth = gapi.auth2.getAuthInstance();\n    GoogleAuth.isSignedIn.listen(updateSigninStatus);\n    var user = GoogleAuth.currentUser.get();\n    setSigninStatus();\n    signIn.onclick = handleAuthClick;\n    signOut.onclick = revokeAccess;\n  });\n}\n\nfunction handleAuthClick() {\n  if (GoogleAuth.isSignedIn.get()) {\n    GoogleAuth.signOut();\n  } else {\n    GoogleAuth.signIn();\n    (0,_callapi_js__WEBPACK_IMPORTED_MODULE_0__.makeApiCall)();\n  }\n}\n\nfunction revokeAccess() {\n  GoogleAuth.disconnect();\n  (0,_reset_js__WEBPACK_IMPORTED_MODULE_1__.reset)();\n}\n\nfunction setSigninStatus() {\n  var user = GoogleAuth.currentUser.get();\n  var isAuthorized = user.hasGrantedScopes(SCOPES);\n\n  if (isAuthorized) {\n    signIn.style.display = \"none\";\n    signOut.style.display = \"block\";\n    console.log(\"You have signed in!\");\n  } else {\n    signIn.style.display = \"block\";\n    signOut.style.display = \"none\";\n    console.log(\"You are signed out!\");\n  }\n}\n\nfunction updateSigninStatus() {\n  setSigninStatus();\n}\n\n//# sourceURL=webpack://yt-clone/./src/auth.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"initClient\": () => (/* binding */ initClient)\n/* harmony export */ });\n/* harmony import */ var _callapi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./callapi.js */ \"./src/callapi.js\");\n/* harmony import */ var _reset_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reset.js */ \"./src/reset.js\");\n\n\nvar API_key = 'AIzaSyBYf4BqVTCZogqRKxcmmEdzufGesXDmKII';\nvar CLIENT_ID = '984566811730-bmukbq2h5lk81rs3g5drdcudc8rpbe31.apps.googleusercontent.com';\nvar DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'];\nvar SCOPES = 'https://www.googleapis.com/auth/youtube';\nvar signIn = document.querySelector('#signIn');\nvar signOut = document.querySelector('#signOut');\nvar GoogleAuth;\nfunction initClient() {\n  gapi.client.init({\n    'apiKey': API_key,\n    'clientId': CLIENT_ID,\n    'scope': SCOPES,\n    'discoveryDocs': DISCOVERY_DOCS\n  }).then(function () {\n    GoogleAuth = gapi.auth2.getAuthInstance();\n    GoogleAuth.isSignedIn.listen(updateSigninStatus);\n    var user = GoogleAuth.currentUser.get();\n    setSigninStatus();\n    (0,_callapi_js__WEBPACK_IMPORTED_MODULE_0__.makeApiCall)();\n    signIn.onclick = handleAuthClick;\n    signOut.onclick = revokeAccess;\n  });\n}\n\nfunction handleAuthClick() {\n  if (GoogleAuth.isSignedIn.get()) {\n    GoogleAuth.signOut();\n  } else {\n    GoogleAuth.signIn();\n  }\n}\n\nfunction revokeAccess() {\n  GoogleAuth.disconnect();\n  (0,_reset_js__WEBPACK_IMPORTED_MODULE_1__.reset)();\n}\n\nfunction setSigninStatus() {\n  var user = GoogleAuth.currentUser.get();\n  var isAuthorized = user.hasGrantedScopes(SCOPES);\n\n  if (isAuthorized) {\n    signIn.style.display = \"none\";\n    signOut.style.display = \"block\";\n    console.log(\"You have signed in!\");\n  } else {\n    signIn.style.display = \"block\";\n    signOut.style.display = \"none\";\n    console.log(\"You are signed out!\");\n  }\n}\n\nfunction updateSigninStatus() {\n  setSigninStatus();\n}\n\n//# sourceURL=webpack://yt-clone/./src/auth.js?");
 
 /***/ }),
 
@@ -39,6 +39,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _auth_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth.js */ \"./src/auth.js\");\n\ngapi.load('client:auth2', _auth_js__WEBPACK_IMPORTED_MODULE_0__.initClient);\n\n//# sourceURL=webpack://yt-clone/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/request.js":
+/*!************************!*\
+  !*** ./src/request.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"videoRequest\": () => (/* binding */ videoRequest)\n/* harmony export */ });\nfunction videoRequest() {\n  return gapi.client.request({\n    'method': 'get',\n    'path': '/youtube/v3/videos',\n    'params': {\n      'part': 'snippet,contentDetails,id',\n      'chart': 'mostPopular',\n      'maxResults': 48\n    }\n  }).then(function (res) {\n    // let item = res.result.items;\n    return res.result.items;\n  });\n}\n\n//# sourceURL=webpack://yt-clone/./src/request.js?");
 
 /***/ }),
 
@@ -124,7 +135,8 @@ eval("document.querySelector('.submitbtn').addEventListener('click', function ()
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./src/index.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/search.js");
+/******/ 	__webpack_require__("./src/search.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/request.js");
 /******/ 	
 /******/ })()
 ;
