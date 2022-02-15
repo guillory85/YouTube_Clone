@@ -1,9 +1,14 @@
+:root {
+  --main: rgb(31, 29, 29);
+  --dark-accent: rgb(0, 0, 0)
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(0, 0, 0);
-  color: white;
+  background-color: var(--dark-accent);
+  color: rgb(255, 255, 255);
 }
 
 header {
@@ -12,7 +17,7 @@ header {
 }
 
 .navBar {
-  background-color: rgb(31, 29, 29);
+  background-color: var(--main);
   display: flex;
   justify-content: center;
   height: 3%;
@@ -20,7 +25,6 @@ header {
 
 .btn {
   background-color: red;
-  color: white;
   position: relative;
   top: 45%;
   left: 20%;
@@ -29,14 +33,23 @@ header {
   margin: 15px;
 }
 
+.btn:hover {
+  background-color: var(--dark-accent);
+  cursor: pointer;
+}
+
 .submitbtn {
-  background-color: rgb(31, 29, 29);
-  color: white;
+  background-color: var(--main);
   position: relative;
   top: 45%;
   width: 4%;
   border-radius: 10%;
-  margin: 10px 0;
+  margin: 15px 0;
+}
+
+.submitbtn:hover {
+  background-color: var(--dark-accent);
+  cursor: pointer;
 }
 
 .navBar input {
@@ -49,29 +62,35 @@ header {
 }
 
 .sideNav {
-  background-color: rgb(31, 29, 29);
+  background-color: var(--main);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   position: fixed;
   height: 55rem;
-  width: 6%;
+  width: 80px;
+  margin-top: 60px;
 }
 
-.sideNav button {
-  background-color: rgb(31, 29, 29);
+.sideNav a {
+  background-color: var(--main);
   font-size: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 15px 0px;
+  padding: 5px;
+}
+
+.sideNav a:hover {
+  background-color: var(--dark-accent);
+  cursor: pointer;
 }
 
 .fas {
   font-size: 25px;
-  background-color: rgb(31, 29, 29);
+  background-color: var(--main);
 }
 
 .output {
@@ -90,9 +109,13 @@ header {
   align-content: center;
   justify-content: start;
   text-align: center;
-  width: 320px;
-  height: 275px;
+  width: 300px;
+  height: 255px;
   flex-basis: auto;
   margin: 5px;
+  cursor: pointer;
+}
+
+.imgStyle:hover {
   cursor: pointer;
 }
